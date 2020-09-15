@@ -1,0 +1,43 @@
+---
+title: "Testing out R markdown"
+author: "Sneha Sundar"
+date: "15/09/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Task 1: Sampling
+
+I first set a seed to ensure reproducibility and sample 100 values from a log normal distribution(mu = 1, sigma=0.25)
+
+```{r}
+set.seed(3)
+data <- rlnorm(100,meanlog=1,sdlog=0.25)
+```
+
+## Task 2: Creating histograms
+
+I create a histogram of the sampled data and of the sampled data on a log scale.
+
+
+```{r}
+hist(data,main = "Histogram of Sampled lognormal Data",xlab ="data")
+
+hist(log(data),main = "Histogram of Sampled logNormal Data in log scale",xlab ="log(data)")
+
+```
+
+## Task 3: Reporting sample mean and variance of sample. 
+
+```{r}
+mean_data <- mean(data)
+mean_data
+var_data <- var(data)
+var_data
+
+```
+
+The sample mean is `r mean_data` and the sample variance is `r var_data`.
